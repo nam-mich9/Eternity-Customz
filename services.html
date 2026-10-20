@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore the services offered by Your Company." />
+  <title>Services | Eternity Customz</title>
+  <link rel="icon" type="image/png" href="images/eternityEBlack.png" />
+  <link rel="stylesheet" href="css/global-var.css" />
+  <link rel="stylesheet" href="css/header.styles.css" />
+  <link rel="stylesheet" href="css/footer.styles.css" />
+  <link rel="stylesheet" href="css/service.styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Include the header -->
+  <header  id="header-placeholder"></header>
+  
+  <main>
+    <section class="page-header">
+      <div class="services-header">
+        <h1>Services</h1>
+        <p class="services-description">From full colour changes to paint protection, ceramic coatings, and detailing, we offer a complete range of services to transform and protect your vehicle. Tap any service category to explore what options we offer.</p>
+      </div>
+    </section>
+
+    <section class="services-container">
+      <div class="service-grid" id="service-cards"></div>
+    </section>
+
+  <!-- Service details modal (populated from the clicked card) -->
+  <div class="service-modal" id="service-modal" aria-hidden="true">
+    <div class="service-modal__backdrop" data-close></div>
+    <div class="service-modal__card" role="dialog" aria-modal="true" aria-labelledby="service-modal-title">
+      <button class="service-modal__close" type="button" data-close aria-label="Close details">&times;</button>
+      <img class="service-modal__img" src="" alt="" />
+      <div class="service-modal__body">
+        <h3 class="service-modal__title" id="service-modal-title"></h3>
+        <p class="service-modal__detail"></p>
+      </div>
+      <ul class="service-modal__options"></ul>
+    </div>
+  </div>
+
+  <footer id="footer-placeholder"></footer>
+
+  <script src="js/services-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

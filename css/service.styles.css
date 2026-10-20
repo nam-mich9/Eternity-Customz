@@ -1,0 +1,317 @@
+/* =========================================================
+   Broken out from the former global styles.css
+   (page-specific rules below keep higher priority)
+   ========================================================= */
+
+.services-header {
+  max-width: 90vw;
+  margin: 0 auto 2rem;
+  padding: 2.5rem 1.5rem 0;
+  text-align: left;
+  font-family: var(--font-heading);
+}
+.services-header h1 {
+  margin: 0;
+  font-size: var(--heading-3xl);
+  text-transform: uppercase;
+}
+.services-description {
+  font-size: var(--text-md);
+  font-family: var(--font-body);
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+}
+
+.services-container {
+  padding: 3rem 0;
+  width: 100%;
+  max-width: 90vw;
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .services-container {
+    max-width: 100%;
+    padding: 2rem 1rem;
+  }
+}
+
+/* Grid of clickable service cards (matches the index.html style) */
+.service-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 calc((100% - 3rem) / 3);
+  border: 1px solid var(--quote-line, rgba(255, 255, 255, 0.1));
+  border-radius: var(--radius);
+  background: var(--quote-card, #131314);
+  box-shadow: 0 0 5px 0.75px var(--color-muted);
+  overflow: hidden;
+}
+
+.service-card__toggle {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card__toggle:hover {
+  transform: translateY(-4px);
+}
+
+.service-card__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.service-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.service-card__toggle:hover .service-card__media img {
+  transform: scale(1.04);
+}
+
+.service-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.75rem 0;
+}
+
+.service-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--heading-2xl);
+  line-height: 1.1;
+}
+
+.service-card__desc {
+  font-size: var(--text-md);
+  font-family: var(--font-body);
+  color: var(--color-muted);
+  padding: 0.6rem 1.75rem 1.75rem;
+  line-height: 1.6;
+}
+
+/* Service details popup (mirrors the index.html vehicle modal) */
+.service-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.service-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.service-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.service-modal__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  max-width: 80vw;
+  height: 80vh;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.3s ease;
+}
+
+.service-modal.is-open .service-modal__card {
+  transform: translateY(0) scale(1);
+}
+
+.service-modal__img {
+  display: block;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.service-modal__body {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  padding: 0 1.75rem;
+}
+
+.service-modal__title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading);
+  font-size: var(--heading-2xl);
+}
+
+.service-modal__detail {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--text-lg);
+}
+
+.service-modal__options {
+  list-style: none;
+  margin: 0;
+  padding: 1.75rem;
+  flex: 1;
+  min-height: 0;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-content: start;
+}
+
+.service-modal__options li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+}
+
+.service-modal__option-img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 2px);
+  margin-bottom: 0.5rem;
+  background: var(--color-surface);
+}
+
+.service-modal__option-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--color-text);
+}
+
+.service-modal__option-desc {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.service-modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  z-index: 1;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.service-modal__close:hover {
+  background: var(--color-primary);
+}
+
+@media (max-width: 960px) {
+  .service-card {
+    flex-basis: calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .service-card {
+    flex-basis: 100%;
+  }
+
+  .service-modal__card {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    max-height: 90vh;
+  }
+
+  .service-modal__img {
+    flex: none;
+    height: 200px;
+  }
+
+  .service-modal__options {
+    flex: none;
+    overflow-y: visible;
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero h1 {
+    animation: none;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .service-modal,
+  .service-modal__card {
+    transition: none;
+  }
+}

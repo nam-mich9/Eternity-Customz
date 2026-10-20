@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Welcome to Eternity Customz" />
+  <title>Eternity Customz</title>
+  <link rel="icon" type="image/png" href="images/eternityEBlack.png" />
+  <link rel="stylesheet" href="css/global-var.css" />
+  <link rel="stylesheet" href="css/header.styles.css" />
+  <link rel="stylesheet" href="css/footer.styles.css" />
+  <link rel="stylesheet" href="css/index.styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Include the header -->
+  <header  id="header-placeholder"></header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="image-container">
+          <img src="images/eternityboys-accent-front.JPG" class="hero-image" />
+          <div class="hero-overlay">
+            <img src="images/clean-logo.png" class="hero-logo" />
+            <h1 class="hero-title">VINYL WRAPS, PPF, TINT, CERAMIC COATING & DETAILING</h1>
+            <!-- <p class="hero-description">Transform and protect your vehicle with precision and care at Eternity Customz.</p> -->
+            <a href="/quote.html" class="hero-quote-btn">Build Your Quote</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <p class="section-description">Eternity Customz was founded with a simple goal: to deliver quality products
+        and services that put customers first.</p>
+        <p class="section-description">We specialize in vinyl wraps, PPF, ceramic coating, and detailing. Our mission is to transform and protect your vehicle with precision and care. At Eternity Customz, your satisfaction is our top priority.</p>
+      </div>
+    </section>
+
+    <section id="vehicles" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Gallery</h2>
+        <div class="vehicle-gallery">
+          <div class="vehicle-track" id="vehicle-track"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-description">Explore our wide range of services designed to enhance and protect your vehicle.</p>
+        <div class="service-grid" id="home-services"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-description">Have any questions? Reach out to us using the form below.</p>
+        <form id="contact-form" class="contact-form" novalidate>
+          <section class="contact-section">
+            <div class="details-grid">
+              <input class="contact-input" id="name" name="name" placeholder="Full name" autocomplete="name" required />
+              <input type="email" class="contact-input" id="email" name="email" placeholder="Email" autocomplete="email" required />
+            </div>
+            <textarea class="contact-input contact-textarea" id="message" name="message" placeholder="How can we help?" required></textarea>
+          </section>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p id="form-status" class="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Vehicle details modal (populated from the clicked card) -->
+  <div class="vehicle-modal" id="vehicle-modal" aria-hidden="true">
+    <div class="vehicle-modal__backdrop" data-close></div>
+    <div class="vehicle-modal__card" role="dialog" aria-modal="true" aria-labelledby="vehicle-modal-title">
+      <button class="vehicle-modal__close" type="button" data-close aria-label="Close details">&times;</button>
+      <img class="vehicle-modal__img" src="" alt="" />
+      <div class="vehicle-modal__body">
+        <p class="vehicle-modal__service"></p>
+        <h3 class="vehicle-modal__title" id="vehicle-modal-title"></h3>
+        <p class="vehicle-modal__detail"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer-placeholder"></footer>
+
+  <script src="js/services-data.js"></script>
+  <script src="js/vehicles-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

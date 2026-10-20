@@ -1,0 +1,88 @@
+:root {
+  --color-primary: #3d839c;
+  --color-primary-dark: #3e94b3;
+  --color-text: #fffdfde1;
+  --color-muted: hsl(220, 9%, 46%);
+  --color-bg: #070707f9;
+  --color-surface: #313030;
+  --color-border: #ffffff0b;
+  --radius: 8px;
+  --font-heading: "Racing Sans One";
+  --font-body: 'Fira Sans', sans-serif;
+  --header-height: 90px;
+  --hero-height: calc(100vh - var(--header-height));
+
+  /* ===== Type scale =====
+     Body text (Fira Sans) — use these for anything in --font-body */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-lead: clamp(1rem, 2vw, 1.25rem); /* intro / sub paragraphs */
+
+  /* Headings (Racing Sans One) */
+  --heading-xs: 1.1rem;
+  --heading-sm: 1.4rem;
+  --heading-md: 1.6rem;
+  --heading-lg: 1.8rem;
+  --heading-xl: 2.5rem;
+  --heading-2xl: clamp(2rem, 2.5vw, 2.75rem);
+  --heading-3xl: clamp(2.2rem, 5vw, 3.2rem);
+  --heading-4xl: clamp(3rem, 5vw, 4.5rem);
+}
+
+/* ===== Base / reset ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Media never overflows its container */
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form controls don't inherit the body font by default */
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* Centered content wrapper: capped width on desktop, full viewport on mobile */
+.container {
+  width: 100%;
+  max-width: 90vw;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    max-width: 100%;
+    padding-inline: 1rem;
+  }
+}

@@ -1,0 +1,218 @@
+
+/* ===== Header / Nav ===== */
+.site-header {
+  background: var(--color-bg);
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  margin: 0 20px;
+  padding: 0;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.nav-logo img {
+  height: 100%;
+  width: auto;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a {
+  color: var(--color-text);
+  font-size: var(--heading-lg);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 10px;
+  font-family: var(--font-heading);
+}
+
+.nav-item a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav-services-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-bg);
+  width: max-content;
+  max-width: 500px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.nav-item:hover .nav-services-dropdown {
+  display: block;
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.nav-services-dropdown a {
+  display: block;
+  padding: 0.5rem 0;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: var(--text-xl);
+  font-family: var(--font-body);
+  text-align: left;
+}
+
+.nav-services-dropdown a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav-quote-btn a {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: var(--heading-lg);
+  font-family: var(--font-heading);
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.nav-quote-btn a:hover {
+  background: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+/* Hamburger is hidden on desktop, revealed in the mobile breakpoint below */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--color-text);
+  border-radius: 2px;
+  padding: 0;
+}
+
+@media screen and (max-width: 960px) {
+  .site-header {
+    margin: 0;
+  }
+
+  .nav-container {
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0 10px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: var(--color-text);
+    border-radius: 2px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .nav-logo img {
+    height: 100%;
+    width: auto;
+    padding: 0;
+  }
+
+  /* Full-screen overlay menu that slides down under the sticky header */
+  .nav-list {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: var(--hero-height);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    background: var(--color-bg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+    z-index: 998;
+    padding: 0;
+  }
+
+  .nav-list.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    font-size: var(--heading-md);
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-item a {
+    font-size: var(--heading-xl);
+  }
+}
+
+/* Lock background scrolling while the full-screen menu is open.
+   html is targeted too because overflow-x: hidden makes it the scroll container */
+html.nav-open,
+body.nav-open {
+  overflow: hidden;
+}

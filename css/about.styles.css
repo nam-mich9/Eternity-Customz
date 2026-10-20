@@ -1,0 +1,21 @@
+/* =========================================================
+   About page
+   Broken out from the former global styles.css
+   ========================================================= */
+
+/* ===== Page heading ===== */
+.page-header {
+  padding-top: 2.5rem;
+}
+
+.page-header h1 {
+  font-family: var(--font-heading);
+  font-size: var(--heading-3xl);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+/* ===== Content ===== */
+.content {
+  padding: 3rem 1.25rem;
+}

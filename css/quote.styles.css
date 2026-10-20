@@ -1,0 +1,581 @@
+/* =========================================================
+   Broken out from the former global styles.css
+   (page-specific rules below keep higher priority)
+   ========================================================= */
+
+/* ===== Content ===== */
+.content {
+  padding: 3rem 1.25rem;
+}
+
+/* ===== Build Your Quote ===== */
+:root {
+  --quote-card: #131314;
+  --quote-line: rgba(255, 255, 255, 0.1);
+  --quote-line-hover: rgba(255, 255, 255, 0.28);
+}
+
+.mono {
+  font-family: var(--font-body);
+  letter-spacing: 0.02em;
+}
+
+/* Intro */
+.quote-hero {
+  padding: 2.5rem 1.5rem 0;
+}
+
+.quote-eyebrow {
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: var(--heading-3xl);
+}
+
+.quote-title {
+  font-family: var(--font-heading);
+  font-size: var(--heading-3xl);
+  margin-bottom: 0.75rem;
+}
+
+.quote-sub {
+  font-family: var(--font-body);
+  color: var(--color-muted);
+  font-size: var(--text-lead);
+}
+
+/* Form layout */
+.quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.quote-section {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quote-step {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 1.25rem;
+}
+
+.quote-note {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Hide the native inputs; the label card is the control */
+.pick-card input,
+.service-card input,
+.swatch-card input,
+.swatch-custom input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* 01 Vehicle class */
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.pick-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem;
+  border: 1px solid var(--quote-line);
+  border-radius: var(--radius);
+  background: var(--quote-card);
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.pick-card:hover {
+  border-color: var(--quote-line-hover);
+}
+
+.pick-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--heading-sm);
+}
+
+.pick-card__meta {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.pick-card:has(input:checked) {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 6%, transparent);
+  box-shadow: 0 0 40px -12px color-mix(in srgb, var(--color-primary) 60%, transparent);
+}
+
+/* 02 Services */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--quote-line);
+  border-radius: var(--radius);
+  background: var(--quote-card);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: var(--quote-line-hover);
+}
+
+.service-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.service-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--heading-sm);
+}
+
+.service-card__check {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card__check::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 0.35rem;
+  height: 0.6rem;
+  border: solid var(--color-bg);
+  border-width: 0 2px 2px 0;
+  transform: translateY(-1px) rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.service-card__desc {
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: var(--color-muted);
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
+
+.service-card__price {
+  font-size: var(--text-sm);
+  color: var(--color-primary);
+  margin-top: 1rem;
+}
+
+.service-card:has(input:checked) {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 6%, transparent);
+}
+
+.service-card:has(input:checked) .service-card__check {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.service-card:has(input:checked) .service-card__check::after {
+  opacity: 1;
+}
+
+/* Category card is a collapsible accordion; its options are the controls */
+.service-card--group {
+  padding: 0;
+  overflow: hidden;
+  cursor: default;
+}
+
+.service-card__trigger {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1.5rem;
+  text-align: left;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.service-card__chevron {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-right: 2px solid var(--color-muted);
+  border-bottom: 2px solid var(--color-muted);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}
+
+.service-card__trigger[aria-expanded="true"] .service-card__chevron {
+  transform: rotate(-135deg);
+}
+
+.service-card__panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.service-card--group.is-open .service-card__panel {
+  max-height: 600px;
+}
+
+.service-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.service-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.service-option__check {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  position: relative;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.service-option__check::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 0.3rem;
+  height: 0.55rem;
+  border: solid var(--color-bg);
+  border-width: 0 2px 2px 0;
+  transform: translateY(-1px) rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.service-option__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.service-option__name {
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.service-option__desc {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.service-option:has(input:checked) .service-option__check {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.service-option:has(input:checked) .service-option__check::after {
+  opacity: 1;
+}
+
+/* 03 Wrap colour */
+.palette {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.palette-group__label {
+  font-size: var(--heading-sm);
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+/* Collapsible palette groups */
+.palette-group__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.palette-group__toggle .palette-group__label {
+  margin-bottom: 0;
+}
+
+.palette-group__chevron {
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-left: 0.75rem;
+  border-right: 2px solid var(--color-muted);
+  border-bottom: 2px solid var(--color-muted);
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.palette-group.is-collapsed .palette-group__chevron {
+  transform: rotate(-45deg);
+}
+
+.palette-group__panel {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.palette-group.is-collapsed .palette-group__panel {
+  grid-template-rows: 0fr;
+}
+
+.palette-group__panel > .swatch-grid {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.swatch-card {
+  display: block;
+  padding: 0.75rem;
+  border: 1px solid var(--quote-line);
+  border-radius: var(--radius);
+  background: var(--quote-card);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.swatch-card:hover {
+  border-color: var(--quote-line-hover);
+}
+
+.swatch {
+  display: block;
+  width: 100%;
+  height: 4rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.swatch-card__name {
+  display: block;
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.swatch-card__finish {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+}
+
+.swatch-card:has(input:checked) {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
+.swatch-card:has(input:checked) .swatch {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 0 2px var(--color-primary);
+}
+
+.swatch-custom {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--quote-line);
+  border-radius: var(--radius);
+  background: var(--quote-card);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.swatch-custom:hover {
+  border-color: var(--quote-line-hover);
+}
+
+.swatch-custom:has(input:checked) {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
+.swatch-custom__title {
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.swatch-custom__meta {
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+}
+
+.swatch-custom__input {
+  margin-top: 0.75rem;
+}
+
+/* 04 Your details */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.quote-input {
+  width: 100%;
+  height: 3.5rem;
+  padding: 0 1rem;
+  color: var(--color-text);
+  background: var(--quote-card);
+  border: 1px solid var(--quote-line);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quote-input::placeholder {
+  color: var(--color-muted);
+  font-family: var(--font-body);
+}
+
+.quote-input:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.quote-textarea {
+  height: auto;
+  min-height: 7rem;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  resize: vertical;
+}
+
+/* Custom-colour field sits under its promo card */
+.palette-group .quote-input {
+  margin-top: 0.75rem;
+}
+
+/* Submit */
+.quote-submit {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-size: var(--heading-xs);
+  font-family: var(--font-heading);
+  color: #fff;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.quote-submit:hover {
+  background: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+/* Status message */
+.form-status {
+  margin-top: 1rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+}
+
+.form-status.success {
+  color: #34d399;
+}
+
+.form-status.error {
+  color: #f87171;
+}
+
+/* Responsive */
+@media (min-width: 640px) {
+  .swatch-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .class-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .swatch-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .class-grid,
+  .service-grid,
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}

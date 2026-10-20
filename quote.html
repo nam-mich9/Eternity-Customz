@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Build your custom quote for vinyl wraps, PPF, ceramic coating, and detailing at Eternity Customz." />
+  <title>Build Your Quote | Eternity Customz</title>
+  <link rel="stylesheet" href="css/quote.styles.css" />
+  <link rel="icon" type="image/png" href="images/eternityEBlack.png" />
+  <link rel="stylesheet" href="css/global-var.css" />
+  <link rel="stylesheet" href="css/header.styles.css" />
+  <link rel="stylesheet" href="css/footer.styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Include the header -->
+  <header id="header-placeholder"></header>
+
+  <main>
+    <section class="quote-hero container">
+      <h1 class="quote-eyebrow">Build your quote</h1>
+      <p class="quote-title">Configure your build</p>
+      <p class="quote-sub">Select your vehicle, services and finish. We'll follow up with a tailored quote.</p>
+    </section>
+
+    <section class="container content">
+      <form id="quote-form" class="quote-form" novalidate>
+        <!-- 01 Vehicle class -->
+        <section class="quote-section">
+          <p class="quote-step mono">01 · Vehicle class</p>
+          <div class="class-grid">
+            <label class="pick-card">
+              <input type="radio" name="car-type" value="Supercar" required />
+              <span class="pick-card__title">Supercar</span>
+              <span class="pick-card__meta mono">Exotic / coupe</span>
+            </label>
+            <label class="pick-card">
+              <input type="radio" name="car-type" value="Sedan" />
+              <span class="pick-card__title">Sedan</span>
+              <span class="pick-card__meta mono">2–4 door</span>
+            </label>
+            <label class="pick-card">
+              <input type="radio" name="car-type" value="SUV" />
+              <span class="pick-card__title">SUV</span>
+              <span class="pick-card__meta mono">Crossover / wagon</span>
+            </label>
+            <label class="pick-card">
+              <input type="radio" name="car-type" value="Truck" />
+              <span class="pick-card__title">Truck</span>
+              <span class="pick-card__meta mono">Pickup / van</span>
+            </label>
+          </div>
+        </section>
+
+        <!-- 02 Services -->
+        <section class="quote-section">
+          <p class="quote-step mono">02 · Services</p>
+          <div class="service-grid" id="quote-services"></div>
+        </section>
+
+        <!-- 03 Wrap colour -->
+        <section class="quote-section">
+          <p class="quote-step mono">03 · Wrap colour</p>
+          <p class="quote-note mono">Curated palette · cast film by Alukovinyl · 300+ shades available. Click for color options.</p>
+          <div class="palette">
+            <div class="palette-group">
+              <p class="palette-group__label mono">Black</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Matte Black" />
+                  <span class="swatch" style="background: rgb(28, 28, 30);"></span>
+                  <span class="swatch-card__name">Matte Black</span>
+                  <span class="swatch-card__finish mono">Matte</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Gloss Black" />
+                  <span class="swatch" style="background: rgb(10, 10, 10);"></span>
+                  <span class="swatch-card__name">Gloss Black</span>
+                  <span class="swatch-card__finish mono">Gloss</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Satin Black" />
+                  <span class="swatch" style="background: rgb(22, 22, 26);"></span>
+                  <span class="swatch-card__name">Satin Black</span>
+                  <span class="swatch-card__finish mono">Satin</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Matte Frosted Black" />
+                  <span class="swatch" style="background: rgb(42, 42, 46);"></span>
+                  <span class="swatch-card__name">Matte Frosted Black</span>
+                  <span class="swatch-card__finish mono">Matte</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Gloss Metallic Black Rose" />
+                  <span class="swatch" style="background: rgb(31, 16, 22);"></span>
+                  <span class="swatch-card__name">Gloss Metallic Black Rose</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Grey</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Nardo Grey" />
+                  <span class="swatch" style="background: rgb(115, 115, 120);"></span>
+                  <span class="swatch-card__name">Nardo Grey</span>
+                  <span class="swatch-card__finish mono">Satin</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Ice Grey" />
+                  <span class="swatch" style="background: rgb(185, 196, 204);"></span>
+                  <span class="swatch-card__name">Ice Grey</span>
+                  <span class="swatch-card__finish mono">Matte</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Matte Satin Light Grey" />
+                  <span class="swatch" style="background: rgb(196, 200, 204);"></span>
+                  <span class="swatch-card__name">Matte Satin Light Grey</span>
+                  <span class="swatch-card__finish mono">Matte Satin</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Graphite" />
+                  <span class="swatch" style="background: rgb(74, 77, 82);"></span>
+                  <span class="swatch-card__name">Graphite</span>
+                  <span class="swatch-card__finish mono">Satin</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">White</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Gloss White" />
+                  <span class="swatch" style="background: rgb(245, 245, 245);"></span>
+                  <span class="swatch-card__name">Gloss White</span>
+                  <span class="swatch-card__finish mono">Gloss</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Matte White" />
+                  <span class="swatch" style="background: rgb(232, 232, 232);"></span>
+                  <span class="swatch-card__name">Matte White</span>
+                  <span class="swatch-card__finish mono">Matte</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Silver</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Chrome Silver" />
+                  <span class="swatch" style="background: rgb(201, 204, 209);"></span>
+                  <span class="swatch-card__name">Chrome Silver</span>
+                  <span class="swatch-card__finish mono">Chrome</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Matte Diamond Glitter Silver" />
+                  <span class="swatch" style="background: rgb(216, 221, 227);"></span>
+                  <span class="swatch-card__name">Matte Diamond Glitter Silver</span>
+                  <span class="swatch-card__finish mono">Matte</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Satin Metallic Pure Silver" />
+                  <span class="swatch" style="background: rgb(191, 196, 201);"></span>
+                  <span class="swatch-card__name">Satin Metallic Pure Silver</span>
+                  <span class="swatch-card__finish mono">Satin Metallic</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Diamond Silver" />
+                  <span class="swatch" style="background: rgb(216, 221, 227);"></span>
+                  <span class="swatch-card__name">Diamond Silver</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Blue</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Meissen Blue" />
+                  <span class="swatch" style="background: rgb(43, 74, 122);"></span>
+                  <span class="swatch-card__name">Meissen Blue</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Oxford Blue" />
+                  <span class="swatch" style="background: rgb(27, 42, 90);"></span>
+                  <span class="swatch-card__name">Oxford Blue</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Sapphire Blue" />
+                  <span class="swatch" style="background: rgb(43, 95, 191);"></span>
+                  <span class="swatch-card__name">Sapphire Blue</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Chameleon Blue White" />
+                  <span class="swatch" style="background: rgb(111, 159, 216);"></span>
+                  <span class="swatch-card__name">Chameleon Blue White</span>
+                  <span class="swatch-card__finish mono">Color Shift</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Red</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Liquid Ruby Red" />
+                  <span class="swatch" style="background: rgb(214, 0, 27);"></span>
+                  <span class="swatch-card__name">Liquid Ruby Red</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Racing Red" />
+                  <span class="swatch" style="background: rgb(204, 16, 16);"></span>
+                  <span class="swatch-card__name">Racing Red</span>
+                  <span class="swatch-card__finish mono">Gloss</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Crystal Rose Red" />
+                  <span class="swatch" style="background: rgb(176, 32, 58);"></span>
+                  <span class="swatch-card__name">Crystal Rose Red</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Orange / Yellow</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Fiery Orange" />
+                  <span class="swatch" style="background: rgb(213, 98, 31);"></span>
+                  <span class="swatch-card__name">Fiery Orange</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Neon Yellow" />
+                  <span class="swatch" style="background: rgb(232, 226, 26);"></span>
+                  <span class="swatch-card__name">Neon Yellow</span>
+                  <span class="swatch-card__finish mono">Gloss Fluorescent</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Green</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Emerald Green" />
+                  <span class="swatch" style="background: rgb(31, 94, 74);"></span>
+                  <span class="swatch-card__name">Emerald Green</span>
+                  <span class="swatch-card__finish mono">Matte</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Chameleon Green" />
+                  <span class="swatch" style="background: rgb(47, 125, 82);"></span>
+                  <span class="swatch-card__name">Chameleon Green</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Pink</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Rainbow Laser Pink" />
+                  <span class="swatch" style="background: rgb(255, 94, 160);"></span>
+                  <span class="swatch-card__name">Rainbow Laser Pink</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Neon Pink" />
+                  <span class="swatch" style="background: rgb(255, 122, 196);"></span>
+                  <span class="swatch-card__name">Neon Pink</span>
+                  <span class="swatch-card__finish mono">Gloss Fluorescent</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Purple</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Dark Purple" />
+                  <span class="swatch" style="background: rgb(58, 35, 80);"></span>
+                  <span class="swatch-card__name">Dark Purple</span>
+                  <span class="swatch-card__finish mono">Satin</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Midnight Purple" />
+                  <span class="swatch" style="background: rgb(42, 23, 69);"></span>
+                  <span class="swatch-card__name">Midnight Purple</span>
+                  <span class="swatch-card__finish mono">Gloss Metallic</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Grey Purple" />
+                  <span class="swatch" style="background: rgb(90, 74, 106);"></span>
+                  <span class="swatch-card__name">Grey Purple</span>
+                  <span class="swatch-card__finish mono">Color Shift</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Brown / Bronze</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Satin Bronze" />
+                  <span class="swatch" style="background: rgb(138, 107, 63);"></span>
+                  <span class="swatch-card__name">Satin Bronze</span>
+                  <span class="swatch-card__finish mono">Satin</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Gold</p>
+              <div class="swatch-grid">
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Mirror Gold" />
+                  <span class="swatch" style="background: rgb(212, 175, 55);"></span>
+                  <span class="swatch-card__name">Mirror Gold</span>
+                  <span class="swatch-card__finish mono">Chrome</span>
+                </label>
+                <label class="swatch-card">
+                  <input type="radio" name="color" value="Champagne Gold" />
+                  <span class="swatch" style="background: rgb(201, 164, 90);"></span>
+                  <span class="swatch-card__name">Champagne Gold</span>
+                  <span class="swatch-card__finish mono">Satin Metallic</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="palette-group">
+              <p class="palette-group__label mono">Other / Custom</p>
+              <label class="swatch-custom">
+                <input type="radio" name="color" value="" />
+                <span class="swatch-custom__title">Don't see your shade?</span>
+                <a class="swatch-custom__meta mono" href="https://www.alukovinyl.com/" target="_blank" rel="noopener noreferrer"> Browse the full Alukovinyl catalog</a>
+                <span class="swatch-custom__meta mono">and type the color and SKU # below</span>
+                <input class="quote-input swatch-custom__input" name="custom-color" placeholder="e.g. Glossy Metallic Midnight Green SKU:3032" />
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 04 Your details -->
+        <section class="quote-section">
+          <p class="quote-step mono">04 · Your details</p>
+          <div class="details-grid">
+            <input class="quote-input" name="full-name" placeholder="Full name" autocomplete="name" required />
+            <input type="email" class="quote-input" name="email" placeholder="Email" autocomplete="email" required />
+            <input type="tel" class="quote-input" name="phone" placeholder="Phone" autocomplete="tel" required />
+            <input class="quote-input" name="vehicle" placeholder="Year, make &amp; model" required />
+          </div>
+          <textarea class="quote-input quote-textarea" name="details" placeholder="Additional services, finish preferences, condition notes, deadlines…"></textarea>
+        </section>
+
+        <button type="submit" class="quote-submit">Submit Quote Request</button>
+        <p id="quote-status" class="form-status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer id="footer-placeholder"></footer>
+
+  <script src="js/services-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
