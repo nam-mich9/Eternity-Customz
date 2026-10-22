@@ -196,7 +196,7 @@ function renderServiceNav() {
   const menu = document.querySelector('.nav-services-dropdown');
   if (!menu) return;
   menu.innerHTML = SERVICE_CATEGORIES.map((service) =>
-    `<a href="/services.html#${service.id}">${service.title}</a>`
+    `<a href="services.html#${service.id}">${service.title}</a>`
   ).join('');
 }
 

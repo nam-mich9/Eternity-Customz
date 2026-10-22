@@ -208,6 +208,10 @@
   .nav-item a {
     font-size: var(--heading-xl);
   }
+
+  .nav-item:hover .nav-services-dropdown {
+    display: none;
+  }
 }
 
 /* Lock background scrolling while the full-screen menu is open.
