@@ -26,12 +26,12 @@ const SERVICE_CATEGORIES = [
     shortDesc: 'Premium cast-film color changes and accents.',
     longDesc:
       'Premium cast-film color changes and accents installed with precision panel coverage for a factory-smooth finish.',
-    image: 'images/nardoQ.jpg',
+    image: 'images/nardoQ.jpeg',
     options: [
       { name: 'Full Color Wrap', image: 'images/full-wrap.jpeg', desc: 'Complete panel-off color change in premium cast film.' },
       { name: 'Partial Wrap', image: 'images/partial-wrap.jpeg' , desc: 'Roof, hood, mirrors or accent panels.' },
       { name: 'Chrome Delete', image: 'images/chrome-delete.jpeg', desc: 'Gloss or satin black trim conversion.' },
-      { name: 'Livery/Decals', image: 'images/decal-wrap.JPG', desc: 'Custom graphics and decals for your vehicle.' },
+      { name: 'Livery/Decals', image: 'images/decal-wrap.jpeg', desc: 'Custom graphics and decals for your vehicle.' },
     ],
   },
   { 
@@ -40,7 +40,7 @@ const SERVICE_CATEGORIES = [
     shortDesc: 'Self-healing clear film that guards your paint.',
     longDesc:
       'Self-healing clear film that guards your paint against rock chips, scratches, and road debris.',
-    image: 'images/red-supra.JPG',
+    image: 'images/red-supra.jpeg',
     options: [
       { name: 'Clear Bra', image: 'images/clear-bra.jpeg', desc: 'Transparent protective film for the front of your vehicle.' },
       { name: 'Full Body', image: 'images/full-wrap.jpeg', desc: 'Complete coverage on every painted panel.' },
@@ -52,7 +52,7 @@ const SERVICE_CATEGORIES = [
     title: 'Window Tinting',
     shortDesc: 'High-quality window tinting for privacy and UV protection.',
     longDesc: 'High-quality window tinting that enhances privacy, reduces glare, and protects your interior from harmful UV rays.',
-    image: 'images/shiny-vette.jpg',
+    image: 'images/shiny-vette.jpeg',
     options: [
       { name: 'Full Tint', image: 'images/full-tint.jpg', desc: 'Windshield, front windows, and rear windows' },
       { name: 'Front Windows Tint', image: 'images/front-tint.jpg', desc: 'Driver side and passenger side front windows' },
@@ -90,7 +90,7 @@ const SERVICE_CATEGORIES = [
     shortDesc: 'Restore your paint to flawless condition.',
     longDesc:
       'Multi-stage process to remove swirls, scratches, and imperfections, bringing your paint back to a showroom finish.',
-    image: 'images/eternityboys-accent.JPG',
+    image: 'images/eternityboys-accent.jpeg',
     options: [
       { name: 'Single-Stage Correction', desc: 'Removes light swirls and scratches.' },
       { name: 'Multi-Stage Correction', desc: 'Comprehensive paint restoration for deeper imperfections.' },
@@ -103,7 +103,7 @@ const SERVICE_CATEGORIES = [
     shortDesc: 'Professional installation of aftermarket cosmetic enhancements.',
     longDesc:
       'Expert installation of aftermarket cosmetic parts to enhance the appearance of your vehicle. Due to the custom nature of these installations, this service is hourly based. Please contact us to know more.',
-    image: 'images/blue-supra-accent.JPG',
+    image: 'images/blue-supra-accent.jpeg',
   },
 ];
 
