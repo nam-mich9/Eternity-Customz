@@ -427,47 +427,73 @@ if (quoteServiceGrid) {
 //Mobile intro video
 const introVideo = document.getElementById('intro-video');
 if(introVideo){
+  const video = introVideo.querySelector('video')
   const isMobile = window.matchMedia('(max-width: 960px)').matches;
-  const isReload = performanace.getEntriesByType?.('navigation')[0]?.type === 'reload';
+  let state = 'idle';
   let seen = false;
-  try{ seen = sessionStorage.getItem('introVideoSeen' === 1); } catch (error){/*storage unavailable*/}
 
-  if(isMobile && (!seen || isReload)){
-    const video = introVideo.querySelector('video')
-    let dismissed = false;
-
-    const dismissIntro = () => {
-      if(dismissed) return;
-
-      dismissed = true;
-      try {sessionStorage.setItem('introVideoSeen', '1');} catch (error){/*storage unavailable*/}
-      video.pause();
-
-      introVideo.classList.add('is-hiding');
-      document.documentElement.classList.remove('nav-open');
-      document.body.classList.remove('nav-open');
-      setTimeout(() => {
-        introVideo.hidden = true;
-        video.removeAttribute('src');
-        video.load();
-      }, 400);
-    };
-    
+  const revealIntro = () =>{
+    if(state != 'loading') return;
+    state = 'shown'
+    introVideo.classList.remove('is-hiding');
     introVideo.hidden = false;
     document.documentElement.classList.add('nav-open');
     document.body.classList.add('nav-open');
 
-    introVideo.addEventListener('click', dismissIntro);
-    introVideo.addEventListener('keydown', (event) => {
-      if(event.key === 'Enter' || event.key === ' ' || event.key === 'Escape'){
-        event.preventDefault();
-        dismissIntro();
-      }
-    });
-    video.addEventListener('ended', dismissIntro)
-    video.addEventListener('error', dismissIntro)
-
-    video.src = video.dataset.src;
+    video.currentTime = 0;
     video.play().catch(() => {/* autoplay blocked; the first frame stays until tapped */});
   }
+
+  const resetVideo = () => {
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+  }
+
+  const dismissIntro = () => {
+    if (state !== 'shown') return;
+    state = 'idle';
+
+    introVideo.classList.add('is-hiding');
+    document.documentElement.classList.remove('nav-open');
+    document.body.classList.remove('nav-open');
+    setTimeout(() => {
+      introVideo.hidden = true;
+      video.removeAttribute('src');
+      video.load();
+    }, 400);
+  }
+
+  const loadIntro = () => {
+    if (state !== 'idle' || !isMobile) return;
+    state = 'loading';
+    video.preload = 'auto';
+    video.src = video.dataset.src;
+    video.load();
+  }
+
+  video.addEventListener('loadeddata', revealIntro);
+  video.addEventListener('loadedmetadata', () => {
+    setTimeout(() => {if (video.readyState < 2) revealIntro();}, 500);
+  });
+
+  video.addEventListener('error', () => {
+    if (state === 'loading') { 
+      state = 'idle';
+      resetVideo();
+    } else {
+      dismissIntro();
+    }
+  });
+  video.addEventListener('ended', dismissIntro)
+
+  introVideo.addEventListener('click', dismissIntro);
+  introVideo.addEventListener('keydown', (event) => {
+    if(event.key === 'Enter' || event.key === ' ' || event.key === 'Escape'){
+      event.preventDefault();
+      dismissIntro();
+    }
+  });
+   
+  loadIntro();
 }
