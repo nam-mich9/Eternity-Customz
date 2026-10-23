@@ -430,7 +430,6 @@ if(introVideo){
   const video = introVideo.querySelector('video')
   const isMobile = window.matchMedia('(max-width: 960px)').matches;
   let state = 'idle';
-  let seen = false;
 
   const revealIntro = () =>{
     if(state != 'loading') return;
