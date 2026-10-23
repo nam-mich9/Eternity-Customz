@@ -11,12 +11,17 @@
   <link rel="stylesheet" href="css/footer.styles.css" />
   <link rel="stylesheet" href="css/index.styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
+  <div class= "intro-video" id="intro-video" role="button" tabindex="0" aria-label="Skip intro video" hidden>
+    <video class="intro-video__media" data-src="images/eternitywrapping.MP4" playsinline preload="none"></video>
+  </div>
+
   <!-- Include the header -->
   <header  id="header-placeholder"></header>
 
@@ -54,10 +59,18 @@
     </section>
 
     <section id="services" class="section section-alt">
-      <div class="container">
+      <div class="container services-cont">
         <h2 class="section-title">Our Services</h2>
         <p class="section-description">Explore our wide range of services designed to enhance and protect your vehicle.</p>
         <div class="service-grid" id="home-services"></div>
+      </div>
+    </section>
+
+    <section id="quote" class = "section section-alt">
+      <div class="container">
+        <h2 class="section-title">Ready to get started?</h2>
+        <p class="section-description">Click here to build your quote today!</p>
+        <a href="/quote.html" class="hero-quote-btn">Build Your Quote</a>
       </div>
     </section>
 
@@ -73,6 +86,7 @@
             </div>
             <textarea class="contact-input contact-textarea" id="message" name="message" placeholder="How can we help?" required></textarea>
           </section>
+          <div class="g-recaptcha" data-sitekey="6LfWkv0tAAAAACvCSwXLrNxUebXW_fSq1jkX3SzL"></div>
           <button type="submit" class="btn btn-primary">Send Message</button>
           <p id="form-status" class="form-status" role="status"></p>
         </form>

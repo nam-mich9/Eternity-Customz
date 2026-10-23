@@ -2,10 +2,11 @@
 
 // Formspree endpoint that receives contact & quote submissions and emails them to you.
 // Create a form at https://formspree.io and paste its endpoint here (e.g. https://formspree.io/f/abcdwxyz).
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/your-form-id';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mnppqeqv';
 
 // POST form data to Formspree; resolves true on success.
 async function sendSubmission(payload) {
+  payload
   const response = await fetch(FORMSPREE_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -109,6 +110,13 @@ if (form) {
       return;
     }
 
+    const captchaResponse = grecaptcha.getResponse();
+    if(!captchaResponse.length > 0){
+      status.textContent = 'Please verify recaptcha.'
+      status.classList.add('error');
+      return;
+    }
+
     const submitBtn = form.querySelector('[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
     status.textContent = 'Sending…';
@@ -119,6 +127,7 @@ if (form) {
         name,
         email,
         message,
+        'g-recaptcha-response': captchaResponse
       });
       if (!ok) throw new Error('Submission failed');
       status.textContent = 'Thanks! Your message has been sent.';
@@ -174,6 +183,11 @@ if (quoteForm) {
       return showError('Please enter a valid email address.');
     }
 
+    const captchaResponse = grecaptcha.getResponse();
+    if(!captchaResponse.length > 0){
+      return showError('Please verify recaptcha.');
+    }
+
     const details = (data.get('details') || '').trim();
     const submitBtn = quoteForm.querySelector('[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
@@ -190,6 +204,7 @@ if (quoteForm) {
         services: services.join(', '),
         wrapColour: color,
         details: details || '(none)',
+        'g-recaptcha-response': captchaResponse
       });
       if (!ok) throw new Error('Submission failed');
       quoteStatus.textContent = 'Thanks! Your quote request has been submitted.';
@@ -407,4 +422,52 @@ if (quoteServiceGrid) {
       if (cb !== input) cb.checked = false;
     });
   });
+}
+
+//Mobile intro video
+const introVideo = document.getElementById('intro-video');
+if(introVideo){
+  const isMobile = window.matchMedia('(max-width: 960px)').matches;
+  const isReload = performanace.getEntriesByType?.('navigation')[0]?.type === 'reload';
+  let seen = false;
+  try{ seen = sessionStorage.getItem('introVideoSeen' === 1); } catch (error){/*storage unavailable*/}
+
+  if(isMobile && (!seen || isReload)){
+    const video = introVideo.querySelector('video')
+    let dismissed = false;
+
+    const dismissIntro = () => {
+      if(dismissed) return;
+
+      dismissed = true;
+      try {sessionStorage.setItem('introVideoSeen', '1');} catch (error){/*storage unavailable*/}
+      video.pause();
+
+      introVideo.classList.add('is-hiding');
+      document.documentElement.classList.remove('nav-open');
+      document.body.classList.remove('nav-open');
+      setTimeout(() => {
+        introVideo.hidden = true;
+        video.removeAttribute('src');
+        video.load();
+      }, 400);
+    };
+    
+    introVideo.hidden = false;
+    document.documentElement.classList.add('nav-open');
+    document.body.classList.add('nav-open');
+
+    introVideo.addEventListener('click', dismissIntro);
+    introVideo.addEventListener('keydown', (event) => {
+      if(event.key === 'Enter' || event.key === ' ' || event.key === 'Escape'){
+        event.preventDefault();
+        dismissIntro();
+      }
+    });
+    video.addEventListener('ended', dismissIntro)
+    video.addEventListener('error', dismissIntro)
+
+    video.src = video.dataset.src;
+    video.play().catch(() => {/* autoplay blocked; the first frame stays until tapped */});
+  }
 }

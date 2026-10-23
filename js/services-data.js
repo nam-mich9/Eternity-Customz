@@ -54,9 +54,9 @@ const SERVICE_CATEGORIES = [
     longDesc: 'High-quality window tinting that enhances privacy, reduces glare, and protects your interior from harmful UV rays.',
     image: 'images/shiny-vette.jpeg',
     options: [
-      { name: 'Full Tint', image: 'images/full-tint.jpg', desc: 'Windshield, front windows, and rear windows' },
-      { name: 'Front Windows Tint', image: 'images/front-tint.jpg', desc: 'Driver side and passenger side front windows' },
-      { name: 'Rear Windows Tint', image: 'images/rear-tint.jpg', desc: 'Driver side and passenger side rear windows' },
+      { name: 'Full Tint', image: 'images/full-tint.jpg', desc: 'Front windshield, rear windshield, front windows, and rear windows' },
+      { name: 'Side Windows Tint', image: 'images/front-tint.jpg', desc: 'Driver side and passenger side front and rear windows' },
+      { name: 'Side Windows + Back Tint', image: 'images/front-tint.jpg', desc: 'Driver side and passenger side windows and rear windshield' },
     ],
   },
   {
@@ -66,9 +66,7 @@ const SERVICE_CATEGORIES = [
     longDesc: 'Hydrophobic coatings that lock in lasting gloss and make washing effortless.',
     image: 'images/rainy-vette.png',
     options: [
-      { name: '1-Year Coating', desc: 'Entry-level shine and protection.' },
-      { name: '5-Year Coating', desc: 'Long-lasting hydrophobic protection.' },
-      { name: '9H Graphene', desc: 'Our hardest, most durable finish.' },
+      { name: '5-Year Coating', image: 'images/ceramic-coat.jpg', desc: 'Long-lasting hydrophobic protection.' },
     ],
   },
   {
@@ -79,9 +77,8 @@ const SERVICE_CATEGORIES = [
       'Interior and exterior restoration services that bring your vehicle back to showroom condition.',
     image: 'images/interior-vette.jpg',
     options: [
-      { name: 'Interior Detail', desc: 'Deep clean and condition of the cabin.' },
-      { name: 'Exterior Detail', desc: 'Wash, decontamination and seal.' },
-      { name: 'Paint Correction', desc: 'Multi-stage swirl and scratch removal.' },
+      { name: 'Interior Detail', image: 'images/interior-detail.png', desc: 'Deep clean and condition of the cabin.' },
+      { name: 'Exterior Detail', image: 'images/exterior-detail.jpg', desc: 'Wash, decontamination and seal.' },
     ],
   },
   {
@@ -92,9 +89,9 @@ const SERVICE_CATEGORIES = [
       'Multi-stage process to remove swirls, scratches, and imperfections, bringing your paint back to a showroom finish.',
     image: 'images/eternityboys-accent.jpeg',
     options: [
-      { name: 'Single-Stage Correction', desc: 'Removes light swirls and scratches.' },
-      { name: 'Multi-Stage Correction', desc: 'Comprehensive paint restoration for deeper imperfections.' },
-      { name: 'Full Correction', desc: 'Complete paint correction for a flawless finish.' },
+      { name: 'Single-Stage Correction', image: 'images/paint-correction.png', desc: 'Removes light swirls and scratches.' },
+      { name: 'Multi-Stage Correction',image: 'images/paint-correction.png', desc: 'Comprehensive paint restoration for deeper imperfections.' },
+      { name: 'Full Correction', image: 'images/paint-correction.png', desc: 'Complete paint correction for a flawless finish.' },
     ],
   },
   {
@@ -119,13 +116,13 @@ function renderHomeServices() {
           .join('')}</span>`
       : '';
     return `
-    <article class="service-card">
+    <a class="service-card service-card--link" href="#quote">
       <span class="service-card__head">
         <span class="service-card__title">${service.title}</span>
       </span>
       <span class="service-card__desc">${service.shortDesc}</span>
       ${optionList}
-    </article>`;
+    </a>`;
   }).join('');
 }
 
