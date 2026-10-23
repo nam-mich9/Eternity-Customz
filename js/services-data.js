@@ -26,12 +26,12 @@ const SERVICE_CATEGORIES = [
     shortDesc: 'Premium cast-film color changes and accents.',
     longDesc:
       'Premium cast-film color changes and accents installed with precision panel coverage for a factory-smooth finish.',
-    image: 'images/nardoQ.jpeg',
+    image: './images/nardoQ.jpeg',
     options: [
-      { name: 'Full Color Wrap', image: 'images/full-wrap.jpeg', desc: 'Complete panel-off color change in premium cast film.' },
-      { name: 'Partial Wrap', image: 'images/partial-wrap.jpeg' , desc: 'Roof, hood, mirrors or accent panels.' },
-      { name: 'Chrome Delete', image: 'images/chrome-delete.jpeg', desc: 'Gloss or satin black trim conversion.' },
-      { name: 'Livery/Decals', image: 'images/decal-wrap.jpeg', desc: 'Custom graphics and decals for your vehicle.' },
+      { name: 'Full Color Wrap', image: './images/full-wrap.jpeg', desc: 'Complete panel-off color change in premium cast film.' },
+      { name: 'Partial Wrap', image: './images/partial-wrap.jpeg' , desc: 'Roof, hood, mirrors or accent panels.' },
+      { name: 'Chrome Delete', image: './images/chrome-delete.jpeg', desc: 'Gloss or satin black trim conversion.' },
+      { name: 'Livery/Decals', image: './images/decal-wrap.jpeg', desc: 'Custom graphics and decals for your vehicle.' },
     ],
   },
   { 
@@ -40,11 +40,11 @@ const SERVICE_CATEGORIES = [
     shortDesc: 'Self-healing clear film that guards your paint.',
     longDesc:
       'Self-healing clear film that guards your paint against rock chips, scratches, and road debris.',
-    image: 'images/red-supra.jpeg',
+    image: './images/red-supra.jpeg',
     options: [
-      { name: 'Clear Bra', image: 'images/clear-bra.jpeg', desc: 'Transparent protective film for the front of your vehicle.' },
-      { name: 'Full Body', image: 'images/full-wrap.jpeg', desc: 'Complete coverage on every painted panel.' },
-      { name: 'Custom Panels', image: 'images/partial-wrap.jpeg', desc: 'Tailored coverage for specific areas of your vehicle.' }
+      { name: 'Clear Bra', image: './images/clear-bra.jpeg', desc: 'Transparent protective film for the front of your vehicle.' },
+      { name: 'Full Body', image: './images/full-wrap.jpeg', desc: 'Complete coverage on every painted panel.' },
+      { name: 'Custom Panels', image: './images/partial-wrap.jpeg', desc: 'Tailored coverage for specific areas of your vehicle.' }
     ],
   },
   {
@@ -52,11 +52,11 @@ const SERVICE_CATEGORIES = [
     title: 'Window Tinting',
     shortDesc: 'High-quality window tinting for privacy and UV protection.',
     longDesc: 'High-quality window tinting that enhances privacy, reduces glare, and protects your interior from harmful UV rays.',
-    image: 'images/shiny-vette.jpeg',
+    image: './images/shiny-vette.jpeg',
     options: [
-      { name: 'Full Tint', image: 'images/full-tint.jpg', desc: 'Front windshield, rear windshield, front windows, and rear windows' },
-      { name: 'Side Windows Tint', image: 'images/front-tint.jpg', desc: 'Driver side and passenger side front and rear windows' },
-      { name: 'Side Windows + Back Tint', image: 'images/front-tint.jpg', desc: 'Driver side and passenger side windows and rear windshield' },
+      { name: 'Full Tint', image: './images/full-tint.jpg', desc: 'Front windshield, rear windshield, front windows, and rear windows' },
+      { name: 'Side Windows Tint', image: './images/front-tint.jpg', desc: 'Driver side and passenger side front and rear windows' },
+      { name: 'Side Windows + Back Tint', image: './images/front-tint.jpg', desc: 'Driver side and passenger side windows and rear windshield' },
     ],
   },
   {
@@ -64,9 +64,9 @@ const SERVICE_CATEGORIES = [
     title: 'Ceramic Coating',
     shortDesc: 'Hydrophobic coatings for lasting gloss and protection.',
     longDesc: 'Hydrophobic coatings that lock in lasting gloss and make washing effortless.',
-    image: 'images/rainy-vette.png',
+    image: './images/rainy-vette.png',
     options: [
-      { name: '5-Year Coating', image: 'images/ceramic-coat.jpg', desc: 'Long-lasting hydrophobic protection.' },
+      { name: '5-Year Coating', image: './images/ceramic-coat.jpg', desc: 'Long-lasting hydrophobic protection.' },
     ],
   },
   {
@@ -75,10 +75,10 @@ const SERVICE_CATEGORIES = [
     shortDesc: 'Interior and exterior restoration services.',
     longDesc:
       'Interior and exterior restoration services that bring your vehicle back to showroom condition.',
-    image: 'images/interior-vette.jpg',
+    image: './images/interior-vette.jpg',
     options: [
-      { name: 'Interior Detail', image: 'images/interior-detail.png', desc: 'Deep clean and condition of the cabin.' },
-      { name: 'Exterior Detail', image: 'images/exterior-detail.jpg', desc: 'Wash, decontamination and seal.' },
+      { name: 'Interior Detail', image: './images/interior-detail.png', desc: 'Deep clean and condition of the cabin.' },
+      { name: 'Exterior Detail', image: './images/exterior-detail.jpg', desc: 'Wash, decontamination and seal.' },
     ],
   },
   {
@@ -87,11 +87,11 @@ const SERVICE_CATEGORIES = [
     shortDesc: 'Restore your paint to flawless condition.',
     longDesc:
       'Multi-stage process to remove swirls, scratches, and imperfections, bringing your paint back to a showroom finish.',
-    image: 'images/eternityboys-accent.jpeg',
+    image: './images/eternityboys-accent.jpeg',
     options: [
-      { name: 'Single-Stage Correction', image: 'images/paint-correction.png', desc: 'Removes light swirls and scratches.' },
-      { name: 'Multi-Stage Correction',image: 'images/paint-correction.png', desc: 'Comprehensive paint restoration for deeper imperfections.' },
-      { name: 'Full Correction', image: 'images/paint-correction.png', desc: 'Complete paint correction for a flawless finish.' },
+      { name: 'Single-Stage Correction', image: './images/paint-correction.png', desc: 'Removes light swirls and scratches.' },
+      { name: 'Multi-Stage Correction',image: './images/paint-correction.png', desc: 'Comprehensive paint restoration for deeper imperfections.' },
+      { name: 'Full Correction', image: './images/paint-correction.png', desc: 'Complete paint correction for a flawless finish.' },
     ],
   },
   {
@@ -100,7 +100,7 @@ const SERVICE_CATEGORIES = [
     shortDesc: 'Professional installation of aftermarket cosmetic enhancements.',
     longDesc:
       'Expert installation of aftermarket cosmetic parts to enhance the appearance of your vehicle. Due to the custom nature of these installations, this service is hourly based. Please contact us to know more.',
-    image: 'images/blue-supra-accent.jpeg',
+    image: './images/blue-supra-accent.jpeg',
   },
 ];
 
