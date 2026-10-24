@@ -441,8 +441,8 @@
 
 .intro-video__sound {
   position: absolute;
+  top: 1.25rem;
   right: 1.25rem;
-  bottom: max(1.25rem, env(safe-area-inset-bottom));
 }
 
 .intro-video__sound img {
