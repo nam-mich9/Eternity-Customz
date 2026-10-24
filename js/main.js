@@ -428,34 +428,44 @@ if (quoteServiceGrid) {
 const introVideo = document.getElementById('intro-video');
 if(introVideo){
   const video = introVideo.querySelector('video')
+  const soundBtn = introVideo.querySelector('.intro-video__sound');
+  const soundImg = introVideo.querySelector('.intro-video__sound-icon');
   const isMobile = window.matchMedia('(max-width: 960px)').matches;
-  let state = 'idle';
-
-  const revealIntro = () =>{
-    if(state != 'loading') return;
-    state = 'shown'
-    introVideo.classList.remove('is-hiding');
-    introVideo.hidden = false;
-    document.documentElement.classList.add('nav-open');
-    document.body.classList.add('nav-open');
-
-    video.currentTime = 0;
-    video.play().catch(() => {/* autoplay blocked; the first frame stays until tapped */});
-  }
+  let state = 'idle'; // idle | loading | shown | closing
+  let revealTimer;
 
   const resetVideo = () => {
+    clearTimeout(revealTimer);
     video.pause();
     video.removeAttribute('src');
     video.load();
   }
 
+  const abortIntro = () => {
+    if (state !== 'loading') return;
+    state = 'idle';
+    introVideo.hidden = true;
+    resetVideo();
+  }
+
+  const revealIntro = () =>{
+    if(state != 'loading') return;
+    state = 'shown'
+    clearTimeout(revealTimer);
+    introVideo.classList.add('is-ready');
+    soundBtn?.focus({preventScroll: true});
+    document.documentElement.classList.add('nav-open');
+    document.body.classList.add('nav-open');
+    if (video.paused) video.play().catch(() => {dismissIntro});
+  }
+
   const dismissIntro = () => {
     if (state !== 'shown') return;
-    state = 'idle';
-
-    introVideo.classList.add('is-hiding');
+    state = 'closing';
+    introVideo.classList.remove('is-ready');
     document.documentElement.classList.remove('nav-open');
     document.body.classList.remove('nav-open');
+    video.pause();
     setTimeout(() => {
       introVideo.hidden = true;
       video.removeAttribute('src');
@@ -463,28 +473,46 @@ if(introVideo){
     }, 400);
   }
 
+  const setMuted = (muted) => {
+    video.muted = muted;
+    if(!soundBtn) return;
+    if(soundImg) soundImg.src = muted ? './images/mute-volume.png' : './images/unmute-volume.png'; 
+    soundBtn.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
+  }
+
   const loadIntro = () => {
     if (state !== 'idle' || !isMobile) return;
     state = 'loading';
+    introVideo.classList.remove('is-ready');
+    introVideo.hidden = false;
+    video.playsInline = true;
+    video.autoplay = true;
     video.preload = 'auto';
     video.src = video.dataset.src;
     video.load();
   }
 
-  video.addEventListener('loadeddata', revealIntro);
-  video.addEventListener('loadedmetadata', () => {
-    setTimeout(() => {if (video.readyState < 2) revealIntro();}, 500);
+  video.addEventListener('playing', revealIntro);
+
+  video.addEventListener('loadeddata', () => {
+    clearTimeout(revealTimer);
+    revealTimer = setTimeout(revealIntro, 1000);
   });
 
+  video.addEventListener('ended', () => {
+    if(state === 'shown') dismissIntro();
+    else abortIntro();
+  })
+
   video.addEventListener('error', () => {
-    if (state === 'loading') { 
-      state = 'idle';
-      resetVideo();
-    } else {
-      dismissIntro();
-    }
+    if (state === 'shown') dismissIntro();
+    else abortIntro();
   });
-  video.addEventListener('ended', dismissIntro)
+
+  soundBtn?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    setMuted(!video.muted);
+  })
 
   introVideo.addEventListener('click', dismissIntro);
   introVideo.addEventListener('keydown', (event) => {

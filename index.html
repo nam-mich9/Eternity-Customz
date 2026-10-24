@@ -6,7 +6,7 @@
   <meta http-equiv="Cache-Control" content="no-cache">
   <meta name="description" content="Welcome to Eternity Customz" />
   <title>Eternity Customz</title>
-  <link rel="icon" type="image/png" href="././images/eternityEBlack.png" />
+  <link rel="icon" type="image/png" href="./images/eternityEBlack.png" />
   <link rel="stylesheet" href="css/global-var.css" />
   <link rel="stylesheet" href="css/header.styles.css" />
   <link rel="stylesheet" href="css/footer.styles.css" />
@@ -20,7 +20,10 @@
 </head>
 <body>
   <div class= "intro-video" id="intro-video" role="button" tabindex="0" aria-label="Skip intro video" hidden>
-    <video class="intro-video__media" data-src="./images/eternitywrapping.MP4" playsinline preload="none"></video>
+    <video class="intro-video__media" data-src="./images/eternitywrapping.MP4" muted playsinline preload="none"></video>
+    <button type="button" class="intro-video__sound" aria-label="Unmute">
+      <img class="intro-video__sound-icon" src="./images/mute-volume.png" />
+    </button>
   </div>
 
   <!-- Include the header -->
